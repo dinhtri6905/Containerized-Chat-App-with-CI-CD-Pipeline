@@ -1,8 +1,8 @@
 # Containerized-Chat-App-with-CI-CD-Pipeline
 
-Git chat app nhỏ
+Git chat app nhỏ \
         ↓
-Dockerize
+Dockerize \
         ↓
 Docker Compose
         ↓
@@ -17,3 +17,43 @@ Deploy Kubernetes
 Prometheus + Grafana
         ↓
 Terraform AWS
+
+
+Containerized-Chat-App-with-CI-CD-Pipeline/
+├── app/
+│   └── chat_application/
+│       ├── src/
+│       ├── public/
+│       ├── package.json
+│       └── ...
+│
+├── docker/
+│   ├── Dockerfile
+│   └── docker-compose.yml
+│
+├── k8s/
+│   ├── deployment.yaml
+│   ├── service.yaml
+│   └── ingress.yaml
+│
+├── terraform/
+│   ├── vpc.tf
+│   ├── ec2.tf
+│   └── variables.tf
+│
+├── monitoring/
+│   ├── prometheus.yml
+│   └── grafana/
+│
+├── scripts/
+│   ├── build.sh
+│   └── deploy.sh
+│
+├── .github/
+│   └── workflows/
+│       └── ci-cd.yml
+│
+├── docs/
+│   └── architecture.md
+│
+└── README.md
