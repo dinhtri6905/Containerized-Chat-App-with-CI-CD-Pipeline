@@ -1,0 +1,21 @@
+grafana:
+  adminUser: admin
+  adminPassword: admin123
+
+  service:
+    type: NodePort
+
+prometheus:
+  service:
+    type: NodePort
+  prometheusSpec:
+    additionalScrapeConfigs:
+      - job_name: "chat-backend"
+        static_configs:
+          - targets:
+              - "chat-service:5000"
+alertmanager:
+  enabled: true
+
+# helm install monitoring prometheus-community/kube-prometheus-stack -f monitoring/prometheus-values.yaml
+# helm upgrade monitoring prometheus-community/kube-prometheus-stack -f monitoring/prometheus-values.yaml
