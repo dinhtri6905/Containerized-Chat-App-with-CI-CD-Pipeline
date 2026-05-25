@@ -1,22 +1,25 @@
 # Containerized-Chat-App-with-CI-CD-Pipeline
 
-Git chat app nhỏ \
+### Trình tự thực hiện
+```bash
+Git chat app nhỏ
         ↓
-Dockerize \
+Dockerize
         ↓
-Docker Compose \
+Docker Compose
         ↓
-Nginx reverse proxy \
+Nginx reverse proxy
         ↓
-GitHub Actions \
+GitHub Actions
         ↓
-Push image lên Docker Hub \
+Push image lên Docker Hub
         ↓
-Deploy Kubernetes \
+Deploy Kubernetes
         ↓
-Prometheus + Grafana \
+Prometheus + Grafana 
         ↓
-Terraform AWS \
+Terraform AWS
+```
 
 ```bash
 Containerized-Chat-App-with-CI-CD-Pipeline/
