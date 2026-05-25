@@ -32,34 +32,34 @@ Containerized-Chat-App-with-CI-CD-Pipeline/
 │
 ├── docker/
 │   ├── Dockerfile
-│   └── docker-compose.yml
+│   └── nginx.conf           
 │
 ├── k8s/
 │   ├── deployment.yaml
 │   ├── service.yaml
-│   └── ingress.yaml
-│
-├── terraform/
-│   ├── vpc.tf
-│   ├── ec2.tf
-│   └── variables.tf
+│   ├── ingress.yaml
+│   ├── configmap.yaml         
+│   └── namespace.yaml
 │
 ├── monitoring/
-│   ├── prometheus.yml
-│   └── grafana/
-│
-├── scripts/
-│   ├── build.sh
-│   └── deploy.sh
+│   ├── grafana/
+│   │   ├── dashboards/
+│   │   │   └── cluster-health.json
+│   │   └── datasources/
+│   │
+│   ├── service-monitors/
+│   │   └── chat-monitor.yaml
+│   │
+│   └── prometheus-values.yaml
 │
 ├── .github/
 │   └── workflows/
-│       └── ci-cd.yml
+│       └── docker-ci.yml
 │
-├── docs/
-│   └── architecture.md
-│
-└── README.md
+├── docker-compose.yaml
+├── .dockerignore
+├── README.md
+└── .gitignore
 ```
 
 #### Trong Kubernetes:

@@ -5,17 +5,47 @@ grafana:
   service:
     type: NodePort
 
+  sidecar:
+    dashboards:
+      enabled: true
+      label: custom_dashboard
+
+# Dùng Grafana Dashboard Provisioning (hoặc Dashboard-as-Code) để tự lấy dashboard trong code
+# Dashboard JSON
+#       ↓
+# ConfigMap
+#       ↓
+# Grafana Sidecar
+#       ↓
+# Dashboard Provider
+#       ↓
+# Grafana tự động load dashboard
+
+  dashboardProviders:
+    dashboardproviders.yaml:
+      apiVersion: 1
+      providers:
+        - name: custom
+          orgId: 1
+          folder: "Chat-App"
+          type: file
+          disableDeletion: false
+          editable: true
+          options:
+            path: /var/lib/grafana/dashboards/custom
+
 prometheus:
   service:
     type: NodePort
-  prometheusSpec:
-    additionalScrapeConfigs:
-      - job_name: "chat-backend"
-        static_configs:
-          - targets:
-              - "chat-service:5000"
+
 alertmanager:
   enabled: true
 
 # helm install monitoring prometheus-community/kube-prometheus-stack -f monitoring/prometheus-values.yaml
 # helm upgrade monitoring prometheus-community/kube-prometheus-stack -f monitoring/prometheus-values.yaml
+
+# kubectl create configmap cluster-health-dashboard --from-file=monitoring/grafana/dashboards/cluster-health.json --label=grafana_dashboard_chat_app=1
+
+# kubectl create configmap cluster-health-dashboard --from-file=monitoring/grafana/dashboards/cluster-health.json
+
+# kubectl label configmap cluster-health-dashboard custom_dashboard=1
