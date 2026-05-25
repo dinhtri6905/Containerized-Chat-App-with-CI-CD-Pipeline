@@ -61,3 +61,13 @@ Containerized-Chat-App-with-CI-CD-Pipeline/
 │
 └── README.md
 ```
+
+#### Trong Kubernetes:
+```bash
+Docker image → Pod → Service → Ingress → Browser
+
+run app: 
+minikube service chat-service
+# or
+kubectl port-forward svc/chat-service 5000:80
+```
