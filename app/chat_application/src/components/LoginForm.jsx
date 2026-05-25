@@ -22,7 +22,14 @@ const Modal = () => {
       window.location.reload();
       setError('');
     } catch (err) {
-      setError('Oops, incorrect credentials.');
+      console.log(err);
+      console.log(err.response);
+
+      setError(
+        err.response?.data?.message ||
+        err.message ||
+        'Login failed'
+      );
     }
   };
 
