@@ -18,7 +18,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts build",
     "test": "react-scripts test",
     "postinstall": "patch-package",
     "eject": "react-scripts eject"
@@ -50,6 +50,5 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "patch-package": "^6.2.2",
     "postinstall-postinstall": "^2.1.0"
-  },
-  "build": "set NODE_OPTIONS=--openssl-legacy-provider && DISABLE_ESLINT_PLUGIN=true react-scripts build"
+  }
 }

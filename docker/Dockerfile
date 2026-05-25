@@ -30,10 +30,10 @@ WORKDIR /app
 
 ENV NODE_OPTIONS=--openssl-legacy-provider
 
-COPY app/chat_application/package*.json ./
+COPY chat_application/package*.json ./
 RUN npm install --legacy-peer-deps
 
-COPY app/chat_application .
+COPY chat_application .
 RUN npm run build
 
 # Stage 2: Serve stage (Dùng Nginx để chạy file HTML tĩnh)
