@@ -2,6 +2,8 @@ const express = require('express');
 const client = require('prom-client');
 
 const app = express();
+// Thêm dòng này để ẩn thông tin Express
+app.disable('x-powered-by');
 
 const register = new client.Registry();
 
