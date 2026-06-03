@@ -30,6 +30,7 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         run: |
           docker build \
+          --no-cache \
           -t $DOCKER_USERNAME/chat-app:latest \
           -f ./docker/Dockerfile .
       
