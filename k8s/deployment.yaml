@@ -19,9 +19,9 @@ spec:
           ports:
             - containerPort: 80
           resources:
-          requests:
-            memory: "128Mi"
-            cpu: "100m"
-          limits:
-            memory: "256Mi" # Đây là dòng giới hạn RAM tối đa để sửa lỗi SonarCloud
-            cpu: "500m"
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi" # Đây là dòng giới hạn RAM tối đa để sửa lỗi SonarCloud
+              cpu: "500m"
