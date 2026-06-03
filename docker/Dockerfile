@@ -37,11 +37,23 @@ COPY app/chat_application .
 RUN npm run build
 
 # Stage 2: Serve stage (Dùng Nginx để chạy file HTML tĩnh)
+# FROM nginx:alpine
+
+# # React (Create React App) sinh thư mục build/
+# COPY --from=builder /app/build /usr/share/nginx/html
+
+# EXPOSE 80
+
+# CMD ["nginx", "-g", "daemon off;"]
 FROM nginx:alpine
 
-# React (Create React App) sinh thư mục build/
 COPY --from=builder /app/build /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 80
+RUN chown -R nginx:nginx /usr/share/nginx/html
+
+USER nginx
+
+EXPOSE 8080
 
 CMD ["nginx", "-g", "daemon off;"]
